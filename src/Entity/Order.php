@@ -39,6 +39,9 @@ class Order
     #[ORM\Column]
     private ?\DateTime $createdAt = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $apiOrderId = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,6 +127,18 @@ class Order
     public function setCreatedAt(\DateTime $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getApiOrderId(): ?string
+    {
+        return $this->apiOrderId;
+    }
+
+    public function setApiOrderId(?string $apiOrderId): static
+    {
+        $this->apiOrderId = $apiOrderId;
 
         return $this;
     }
